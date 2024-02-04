@@ -15,12 +15,12 @@ const {
 const router = Router()
 
 // all posts
-router.get('/all-posts',allPosts)
+router.get('/all-notes',allPosts)
 
 // add new post
-router.post('/add-post',privateRoutes,newPost)
+router.post('/add-note',privateRoutes,newPost)
 
 // delete post
-router.delete('/delete-post/:_id',privateRoutes,deletePost)
+router.delete('/delete-note/:_id',privateRoutes,deletePost)
 
 module.exports = router

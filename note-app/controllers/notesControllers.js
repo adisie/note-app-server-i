@@ -9,6 +9,8 @@ const allPosts = async (req,res) => {
             authorId: 1,
             note: 1,
             createdAt: 1
+        }).sort({
+            createdAt: -1,
         })
         res.status(200).json({notes})
     }catch(err){
