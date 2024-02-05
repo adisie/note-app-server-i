@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGODB_URL)
 // socket io
 const io = socketio(server,{
     cors: {
-        origin: true,
+        origin: '*',
         credentials: true,
     },
 })
