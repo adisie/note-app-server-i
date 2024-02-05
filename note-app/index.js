@@ -6,6 +6,9 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const socketio = require('socket.io')
 
+// cors options
+const corsOptions = require('./config/corsOptions')
+
 const PORT = process.env.PORT || 5050 
 const app = express()
 const server = http.createServer(app)
@@ -14,10 +17,7 @@ const server = http.createServer(app)
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
-app.use(cors({
-    origin: true,
-    credentials: true,
-}))
+app.use(cors(corsOptions))
 
 // db connection
 mongoose.connect(process.env.MONGODB_URL)
@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGODB_URL)
 // socket io
 const io = socketio(server,{
     cors: {
-        origin: '*',
+        corsOptions,
     },
 })
 
