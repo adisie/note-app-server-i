@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
 app.use(cors({
-    origin: ['http://localhost:3000',],
+    origin: true,
     credentials: true,
 }))
 
@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGODB_URL)
 // socket io
 const io = socketio(server,{
     cors: {
-        origin: ['http://localhost:3000',]
+        origin: true,
     }
 })
 
